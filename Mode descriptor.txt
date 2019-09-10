@@ -1,0 +1,79 @@
+Mode 1 =	N3	PII	VII
+Mode 2 =	N2	PI	VI	Monod
+Mode 3 =	N2	PII	VII
+Mode 4 =	N3	PII	VII	IG
+Mode 5 =	N3	PII	VII	IG
+Mode 6 =	N3	PI	VI	IG	Monod
+Mode 7 =	N3	PII	VII	IG
+Mode 8 =	N3	PII	VI	IG
+Mode 9 =	N1	PII	VI
+Mode 10 =	N2	PII	VI
+Mode 11 =	N3	PI	VI	IG
+Mode 12 =	N3	PI	VI	I
+Mode 13 =	N3	PI	VI	A
+Mode 14 =	N3	PII	VII	IG
+Mode 15 =	N3	PI	VII	IG
+Mode 16 =	N3	PII	VI	ABG
+Mode 17 =	N3	PII	VI	AG
+Mode 18 =	N3	PII	VI	AVG
+Mode 19 =	N3	PI	VI	ABG
+Mode 20 =	N3	PI	VII	ABG
+Mode 21 =	N3	PII	VII	ABG
+Mode 22 =	N3	PI	VI	AB
+Mode 23 =	N3	PII	VI	A
+Mode 24 =	N3	PII	VI	AB
+Mode 25 =	N3	PII	VI	I
+Mode 26 =	N3	PI	VI	AV
+Mode 27 =	N3	PII	VI	ABG vary mortality
+Mode 28 =	N3	PII	VI	A	Persisters reversion rate is inversely proportional to alarmone
+Mode 29 =	N3	PII	VI	ABG	Develop resistance
+Mode 30 =	N3	PII	VI	ABG
+Mode 31 =	N3	PII	VI	ABG	Develop resistance and has Rf
+Mode 32 =	N3	PII	VI	ABG	Develop resistance no Rf
+
+Competition Level 1 = 8, 9 & 10
+Competition Level 2 = 8, 23 & 25
+Competition Level 3 = 8, 17 & 23
+Competition Level 4 = 16, 17 & 18
+Competition Level 5 = 16, 19, 20, 21
+
+Changed this so following is suspect
+
+Need to vary mortality & have diff initials
+Mode 34 from Mode 9
+
+Also mutation rate for
+Mode 33 from Mode 8
+Mode 35 from Mode 10
+Mode 36 from Mode 16
+Mode 37	from Mode 17
+Mode 38 from Mode 18
+Mode 39 from Mode 19
+Mode 40 from Mode 20
+Mode 41 from Mode 21
+Mode 42 from Mode 23
+Mode 43 from Mode 25
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
