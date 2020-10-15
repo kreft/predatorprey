@@ -5,9 +5,11 @@ This file contains some explanations of the code.
 
 See this manuscript and supplemental material for details on the model, the data, and how they come together:
 
-Laura Hobley, J Kimberley Summers, Rob Till, David S. Milner, Robert J Atterbury, Amy Stroud, Michael J. Capeness, Stephanie Gray, Andreas Leidenroth, Carey Lambert, Ian Connerton, Jamie Twycross, Michelle Baker, Jess Tyson, Jan-Ulrich Kreft, R. Elizabeth Sockett (2019). Dual predation by bacteriophage and Bdellovibrio can eradicate E. coli prey in situations where single predation cannot.
+Laura Hobley, J Kimberley Summers, Rob Till, David S. Milner, Robert J Atterbury, Amy Stroud, Michael J. Capeness, Stephanie Gray, Andreas Leidenroth, Carey Lambert, Ian Connerton, Jamie Twycross, Michelle Baker, Jess Tyson, Jan-Ulrich Kreft, R. Elizabeth Sockett (2020). Dual predation by bacteriophage and Bdellovibrio can eradicate E. coli prey in situations where single predation cannot. Journal of Bacteriology 202: e00629-19
 
 The code was written by J Kimberley Summers (JKS282@student.bham.ac.uk), Kreft Lab, School of Biosciences, University of Birmingham, UK
+
+New email address is Kimberley.Summers@warwick.ac.uk
 
 It is written in Matlab (m files). It reads in input files called protocols (Excel files).
 
@@ -58,4 +60,4 @@ The fact that you are presently reading this means that you have had
 knowledge of the GNU GPL license and that you accept its terms.
 
 Moreover authors ask to be acknowledged in any scientific publications based on 
-or using some part of this software by citing the above paper by Hobley et al.
+or using some part of this software by citing the above paper by Hobley, Summers et al. (2020)
