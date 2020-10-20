@@ -32,7 +32,6 @@ function plotSubSpecies(paramVals, simMode, fixedVals, ...
 % 1.00       J K Summers  01/12/18  Kreft Lab - School of Biosciences -
 %                                   University of Birmingham
 %
-
 dataFile= 'Nottingham Phage Data.xlsx';
 data = readtable(dataFile);
 simTimes = data.times;

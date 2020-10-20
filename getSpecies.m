@@ -63,6 +63,9 @@ elseif (simMode == 2 || simMode == 3 || simMode == 10)
 elseif simMode == 9
     initSpecies(1:2) = initVals(1:2); 	% Substrate & prey
     initSpecies(3:6) = zeros(4, 1); 	% Predators
+elseif simMode == 34
+    initSpecies(1:5) = initVals(1:5); 	% Substrate & all prey species
+    initSpecies(6:10) = zeros(5, 1);    % Predators and alarmone
 else
 	initSpecies(1:4) = initVals(1:4);	% Substrate & prey
 	initSpecies(5:8) = zeros(4, 1);     % Predators
@@ -73,7 +76,7 @@ else
         simMode == 24 || simMode == 26 || simMode == 27 || ...
         simMode == 28 || simMode == 29 || simMode == 30 || ...
     	simMode == 31 || simMode == 32 || simMode == 33)
-    	initSpecies(9) = zeros(1, 1); 	% Alarmone
+    	initSpecies(9) = 0; 	% Alarmone
     end
     
 end
@@ -86,7 +89,7 @@ if ~timeOut
     speciesData(:, 1, 1) = speciesVals(:, 1);
 
 	% Prey species
-    if simMode == 1
+    if simMode == 1 || simMode == 34
         % Prey species
         speciesData(:, 1, 2) = speciesVals(:, 2) + speciesVals(:, 3) + ...
             speciesVals(:, 4) + speciesVals(:, 5);
@@ -104,10 +107,10 @@ if ~timeOut
         speciesVals(:, 4);
     end
     
-    if simMode == 1
+    if simMode == 1 
     	initSpecies(1:6) = initVals(1:6); 	% Substrate, prey & Bdellovibrio
    	 	initSpecies(7:9) = zeros(3, 1); 	% Bdelloplast, phage, infected cell
-	elseif (simMode == 2 || simMode == 3 || simMode == 10)
+  	elseif (simMode == 2 || simMode == 3 || simMode == 10)
    	 	initSpecies(1) = initVals(1); 		% Substrate
    	 	initSpecies(2:3) = initVals(4:5); 	% Prey
    	 	initSpecies(4) = initVals(10); 		% Substrate, prey & Bdellovibrio
@@ -117,6 +120,12 @@ if ~timeOut
 	    initSpecies(2) = initVals(3); 		% Prey
 	    initSpecies(3) = initVals(6); 		% Bdellovibrio
  	   	initSpecies(4:6) = zeros(3, 1); 	% Bdelloplast, phage, infected cell
+    elseif simMode == 34
+        initSpecies(1) = initVals(1); 		% Substrate
+        initSpecies(2:5) = initVals(6:9);   % All prey - Bd predation
+        initSpecies(6) = initVals(18);      % Bdellovibrio - Bd predation 
+        initSpecies(7) = initVals(20);      % Bdelloplasts - Bd predation 
+        initSpecies(8:10) = zeros(3, 1);    % Halophage, infected cells and dead cells
     else
 	    initSpecies(1) = initVals(1); 		% Substrate
 	    initSpecies(2:4) = initVals(5:7);  	% Prey
@@ -129,7 +138,7 @@ if ~timeOut
         	simMode == 24 || simMode == 26 || simMode == 27 || ...
         	simMode == 28 || simMode == 29 || simMode == 30 || ...
         	simMode == 31 || simMode == 32 || simMode == 33)
-        	initSpecies(9) = zeros(1, 1);	% alarmone
+        	initSpecies(9) = 0;	% alarmone
         end
         
     end
@@ -142,7 +151,7 @@ if ~timeOut
 	% Substrate
     speciesData(:, 2, 1) = speciesVals(:, 1); 
 
-    if simMode == 1
+    if simMode == 1 || simMode == 34
         % Prey
         speciesData(:, 2, 2) = speciesVals(:, 2) + speciesVals(:, 3) + ...
             speciesVals(:, 4) + speciesVals(:, 5);
@@ -179,24 +188,31 @@ if ~timeOut
     	initSpecies(6) = 0;
     	initSpecies(7) = initVals(7);
     	initSpecies(8:9) = zeros(2, 1);
-	elseif (simMode == 2 || simMode == 3 || simMode == 10)
+  	elseif (simMode == 2 || simMode == 3 || simMode == 10)
 	    initSpecies(1) = initVals(1); 		% Substrate
 	    initSpecies(2:3) = initVals(6:7); 	% Prey
     	initSpecies(4:5) = zeros(2, 1);   	% Bdellovibrio & Bdelloplast
     	initSpecies(6) = initVals(13); 		% Bacteriophage
-	    initSpecies(7) = zeros(1, 1); 		% Infected cells
+	    initSpecies(7) = 0; 		% Infected cells
     elseif simMode == 9
     	initSpecies(1) = initVals(1); 		% Substrate
 	    initSpecies(2) = initVals(4); 		% Prey
     	initSpecies(3:4) = zeros(2, 1);   	% Bdellovibrio & Bdelloplast
     	initSpecies(5) = initVals(9);		% Bacteriophage
-    	initSpecies(6) = zeros(1, 1);		% Infected cells
-    else 
+    	initSpecies(6) = 0;		% Infected cells
+    elseif simMode == 34
+    	initSpecies(1) = initVals(1); 		% Substrate
+        initSpecies(2:5) = initVals(10:13); % All prey - phage predation
+        initSpecies(6:7) = zeros(1, 2);      % Bdellovibrio and bdelloplasts
+        initSpecies(8) = initVals(21);      % Bacteriophage - Phage predation
+        initSpecies(9) = initVals(23);      % Infected cells
+        initSpecies(10) = 0;      % Dead cells
+    else
 	    initSpecies(1) = initVals(1); 		% Substrate
 	    initSpecies(2:4) = initVals(8:10); 	% Prey
 	    initSpecies(5:6) = zeros(2, 1);   	% Bdellovibrio & Bdelloplast
 	    initSpecies(7) = initVals(17); 		% Bacteriophage
-	    initSpecies(8) = zeros(1, 1);     	% Infected cells 
+	    initSpecies(8) = 0;     	% Infected cells 
 	    
 	    if (simMode == 13 || simMode == 16 || simMode == 17 || ...
          	simMode == 18 || simMode == 19 || simMode == 20 || ...
@@ -204,7 +220,7 @@ if ~timeOut
         	simMode == 24 || simMode == 26 || simMode == 27 || ...
        	 	simMode == 28 || simMode == 29 || simMode == 30 || ...
         	simMode == 31 || simMode == 32 || simMode == 33)
-        	initSpecies(9) = zeros(1, 1);		% Dead prey
+        	initSpecies(9) = 0;		% Dead prey
     	end
 
     end
@@ -217,7 +233,7 @@ if ~timeOut
 	% Substrate
     speciesData(:, 3, 1) = speciesVals(:, 1);
 
-    if simMode == 1
+    if simMode == 1 || simMode == 34
 		% Prey bacteria
         speciesData(:, 3, 2) = speciesVals(:, 2) + speciesVals(:, 3) + ...
             speciesVals(:, 4) + speciesVals(:, 5);
@@ -259,6 +275,12 @@ if ~timeOut
 	    initSpecies(2) = initVals(5); 		% Prey
     	initSpecies(3:4) = initVals(7:8);	% Bdellovibrio & Bdelloplast
     	initSpecies(5:6) = initVals(10:11);	% Bacteriophage & Infected cells
+    elseif simMode == 34
+	    initSpecies(1) = initVals(1); 		% Substrate
+	    initSpecies(2:5) = initVals(14:17);	% All prey - dual predation
+	    initSpecies(6:7) = initVals(19:20);	% Bdellovibrio & Bdelloplast
+	    initSpecies(8:9) = initVals(22:23);	% Bacteriophage & infected cells
+        initSpecies(10) = 0;                % Alarmone
     else
 	    initSpecies(1) = initVals(1); 		% Substrate
 	    initSpecies(2:4) = initVals(11:13);	% Prey
@@ -271,7 +293,7 @@ if ~timeOut
         	simMode == 24 || simMode == 26 || simMode == 27 || ...
         	simMode == 28 || simMode == 29 || simMode == 30 || ...
         	simMode == 31 || simMode == 32 || simMode == 33)
-        	initSpecies(9) = zeros(1, 1);	% Dead prey
+        	initSpecies(9) = 0;	% Dead prey
     	end
 
     end
@@ -284,7 +306,7 @@ if ~timeOut
 	% Substrate
     speciesData(:, 4, 1) = speciesVals(:, 1);
 
-    if simMode == 1
+    if simMode == 1 || simMode == 34
 		% Prey cells
         speciesData(:, 4, 2) = speciesVals(:, 2) + speciesVals(:, 3) + ...
             speciesVals(:, 4) + speciesVals(:, 5);

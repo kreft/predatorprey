@@ -50,7 +50,7 @@ if saveFile
         print(fig, figSaveName, '-dpng', '-r600')
     catch
     end
+    
 end
-
 
 end

@@ -37,7 +37,7 @@ function [tolerable, dataGap, dataGap2, compVals] = ...
 %                                   from fixed vals
 
 [compVals, timeOut] = getSpecies(theta, fixedVals, dataVals, simTimes, ...
-    simMode);
+    simMode, false);
   
 if ~timeOut
     dataGap = 0;

@@ -135,7 +135,7 @@ if splitPlots
                 figSaveName = [fileName '.pdf'];
                 print(fig, figSaveName, '-dpdf', '-r600')
                 figSaveName = [fileName '.fig'];
-                savefig(fig, figSaveName
+                savefig(fig, figSaveName)
                 figSaveName = [fileName '.png'];
                 print(fig, figSaveName, '-dpng', '-r600')
             end

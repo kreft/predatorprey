@@ -124,6 +124,31 @@ elseif simMode == 10
     initVals(13) = dataVals(7); 			% Bacteriophage - phage predation
     initVals(14) = dataVals(8);				% Bacteriophage - dual predation
     initVals(15) = 0;            			% infected cells
+elseif simMode == 34
+    % Dual resistance
+    initVals(3) = 0;                        % Bd persistent prey - Prey only
+	initVals(4) = dataVals(1) * theta(1); 	% Phage resistant bacteria - Prey only
+    initVals(5) = 0;                        % dual resistant prey - Prey only
+    initVals(6) = dataVals(2);              % Sensitive prey - Bd predation
+    initVals(7) = 0;                        % Bd persistent prey - Bd predation
+    initVals(8) = dataVals(2) * theta(1); 	% Phage resistant bacteria - Bd predation
+    initVals(9) = 0;                        % dual resistant prey - Bd predation
+    initVals(10) = dataVals(3);             % Sensitive prey - Phage predation
+    initVals(11) = 0;                       % Bd persistent prey - Phage predation
+    initVals(12) = dataVals(3) * theta(1); 	% Phage resistant bacteria - Phage predation
+    initVals(13) = 0;                       % dual resistant prey - Bd predation
+    initVals(14) = dataVals(4);             % Sensitive prey - dual predation
+    initVals(15) = 0;                       % Bd persistent prey - dual predation
+    initVals(16) = dataVals(4) * theta(1); 	% Phage resistant bacteria - dual predation
+    initVals(17) = 0;                       % dual resistant prey - dual predation
+
+    initVals(18) = dataVals(5);             % Bdellovibrio - Bd predation
+    initVals(19) = dataVals(6);             % Bdellovibrio - Dual predation
+    initVals(20) = 0;                       % Bdelloplasts
+    initVals(21) = dataVals(7);             % Bacteriophage - Phage predation
+    initVals(22) = dataVals(8);             % Bacteriophage - Dual predation
+    initVals(23) = 0;                       % Infected cells
+    initVals(24) = 0;                       % Alarmone
 else
     % Bdellovibrio phenotypic persistence
     
@@ -166,7 +191,7 @@ else
             simMode == 24 || simMode == 25 || simMode == 26 || ...
             simMode == 27 || simMode == 28 || simMode == 31 || ...
             simMode == 32 || simMode == 33)
-        initVals(20) = 0;
+        initVals(20) = 0;       % Alarmone
     end
 
 end
@@ -351,7 +376,7 @@ else
     				end
 
   				elseif (simMode == 27 || simMode == 29 || simMode == 30 ...
-                        || simMode == 32 || simMode == 33)
+                        || simMode == 32 || simMode == 33 || simMode == 34)
     				thetaODE.kP = theta(7);
     				thetaODE.yieldPPerB = fixedVals(1);
     			    thetaODE.mortality = theta(8);

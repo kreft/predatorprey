@@ -1,5 +1,5 @@
 function NottinghamPhageSMC(protocolFiles, dataFile, particles, ...
-    tolerances, compMode, fitAll, savePlot)
+    tolerances, compMode, fitAll, savePlot, runNo)
  
 % Run the SMC progress for a range of models.
 % 
@@ -48,7 +48,7 @@ obsData(:, 6) = data.EColiAll;
 obsData(:, 7) = data.BdAll;
 obsData(:, 8) = data.PhageAll;
 
-baseTitle = ['Models ' num2str(numModels) ...
+baseTitle = [num2str(runNo) 'Models ' num2str(numModels) ...
     ' tolerances ' num2str(tolerances) ' I' num2str(particles) ' '];
  
 for i = 1:numModels
@@ -198,8 +198,18 @@ for i = 1:tolNums
 
             plotTitle = [baseTitle ' Tolerance' num2str(tolerances(i)) ...
                 ' Model ' num2str(models(j).simMode) ' Params'];
-            xlwrite(plotTitle, outputVals);
-
+            
+            try
+                xlwrite(plotTitle, outputVals);
+            catch
+                
+                try
+                    xlswrite(plotTitle, outputVals);
+                catch
+                end
+                
+            end
+            
         end
         
     end
@@ -268,8 +278,13 @@ for i = 1:numModels
         [paramCoeffs, scores] = pca(histParams);
         
         if fitAll
-            plotPCA(paramCoeffs, scores, models(i).paramNames, false, ...
-                '', 0, savePlot, [plotTitle ' PCA'])
+            
+            try
+                plotPCA(paramCoeffs, scores, models(i).paramNames, false, ...
+                    '', 0, savePlot, [plotTitle ' PCA'])
+            catch
+            end
+            
         else
 %             plotPCA(paramCoeffs, scores, models(i).paramNames, true, ...
 %                 dataGaps2, tolerances(size(tolerances, 2)), savePlot, ...

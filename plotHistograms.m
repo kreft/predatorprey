@@ -6,7 +6,8 @@ function plotHistograms(abcData, minVals, maxVals, paramNames, ...
 % The abcData is a matrix with each column containing the trace for a
 % different parameter. Plot a histogram of these each on a seperate graph. 
 %
-% function plotAbcData(abcData, saveFile, fileBase)
+% function plotHistograms(abcData, minVals, maxVals, paramNames, ...
+%     evenBins, saveFile, fileBase)
 %
 % abcData       - The data to plot
 % minVals       - min X value for the plot

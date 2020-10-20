@@ -7,7 +7,7 @@ function dy = NottinghamPhageN3ABGPIIVIODE(t, y, sP)
 % others which develop or lose persistance to predation and two predators 
 % one exhibiting a Holling type I functional response, the other a Holling
 % type II response and mortality. Each predator has a seperate 
-% bdelloplast / infected cell stage. Development of persistence is %
+% bdelloplast / infected cell stage. Development of persistence is 
 % proportional to dead prey killed by bdellovibrio.
 % Persisters grow into sensitives
 % Modes 16, 27, 30 & 33

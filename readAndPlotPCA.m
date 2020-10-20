@@ -22,7 +22,8 @@ paramsA = table2array(params);
 paramNames = params.Properties.VariableNames;
 [paramCoeffs, scores] = pca(paramsA);
 
-plotPCA(paramCoeffs, scores, paramNames, showDist, '', 0, savePlot, fileBase)
+plotPCA(paramCoeffs, scores, paramNames, showDist, '', 0, savePlot, ...
+    fileBase)
 
 toc
 end
